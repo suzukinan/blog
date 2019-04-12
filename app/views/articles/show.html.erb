@@ -1,0 +1,21 @@
+<div class="container">
+      <div class="col-md-12 margin-top-5per bg-white">
+        <%= image_tag 'http://nekogazou.com/wp-content/uploads/2013/03/20375ced40379f1e8ea26f8e6c287f043.jpg', class: 'article-img padding-top-15' %>
+
+          <h1 class="text-center"><%= @article.title %></h1>
+        <div class="padding-bottom-15">
+          <%= simple_format @article.body %>
+          <p class="text-right">
+            <%= @article.created_at.strftime("%Y年%m月%d日") %>
+          </p>
+        </div>
+         <%= link_to '編集', edit_article_path(@article), class: 'btn btn-primary', style: 'margin-bottom: 10px; margin-right: 10px;' %>
+         <%= link_to '削除', article_path(@article), method: :delete, data: { confirm: 'Are you sure? ' }, class: 'btn btn-danger', style: 'margin-bottom: 10px;' %>
+      </div>
+</div>
+
+
+
+        <%# if @article.image_id.present? %>
+        <%#= image_tag attachment_url(@article, :image), class: 'article-image padding-top-15' %>
+        <%# end %>
